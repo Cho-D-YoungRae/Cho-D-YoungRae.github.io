@@ -21,3 +21,7 @@ yarn-error.log*
 
 # Webstorm
 .idea
+
+# Agent
+.playwright-mcp
+.worktree

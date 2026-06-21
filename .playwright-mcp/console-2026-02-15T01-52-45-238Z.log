@@ -1,3 +1,0 @@
-[   11146ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/2026/02/17/draft-test:0
-[   11148ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/2026/02/17/unlisted-test:0
-[   43996ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/draft-test:0

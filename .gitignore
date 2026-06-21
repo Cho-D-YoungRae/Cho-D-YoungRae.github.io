@@ -28,6 +28,14 @@ public/pagefind
 
 # pnpm
 .pnpm-store
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# playwright mcp logs
+.playwright-mcp/
 
 # docker compose
 compose.override.yaml
+
+# subagent-driven-development 작업 스크래치
+.superpowers/

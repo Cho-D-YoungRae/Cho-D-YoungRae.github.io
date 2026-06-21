@@ -1,110 +1,166 @@
-# 심플스택
+# AstroPaper 📄
 
-[Docusaurus](https://docusaurus.io/) 기반 개발자 기술 블로그.
+![AstroPaper](public/default-og.jpg)
+[![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1356898632249991861)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![GitHub](https://img.shields.io/github/license/satnaing/astro-paper?color=%232F3741&style=for-the-badge)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white&style=for-the-badge)](https://conventionalcommits.org)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
 
-## 개발
+AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme is designed and crafted based on [my personal blog](https://satnaing.dev/blog).
+
+Read [the blog posts](https://astro-paper.pages.dev/posts/) or check [the README Documentation Section](#-documentation) for more info.
+
+## 🔥 Features
+
+- [x] type-safe markdown
+- [x] super fast performance
+- [x] accessible (Keyboard/VoiceOver)
+- [x] responsive (mobile ~ desktops)
+- [x] SEO-friendly
+- [x] light & dark mode
+- [x] static search ([Pagefind](https://pagefind.app/))
+- [x] draft posts & pagination
+- [x] sitemap & rss feed
+- [x] MDX support
+- [x] collapsible table of contents
+- [x] followed best practices
+- [x] highly customizable
+- [x] dynamic OG image generation for blog posts ([Blog Post](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/))
+- [x] i18n ready
+
+_Note: I've tested screen-reader accessibility of AstroPaper using **VoiceOver** on Mac and **TalkBack** on Android. I couldn't test all other screen-readers out there. However, accessibility enhancements in AstroPaper should be working fine on others as well._
+
+## ✅ Lighthouse Score
+
+<p align="center">
+  <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fastro-paper.pages.dev%2F&form_factor=desktop">
+    <img width="710" alt="AstroPaper Lighthouse Score" src="AstroPaper-lighthouse-score.svg">
+  </a>
+</p>
+
+## 🚀 Project Structure
+
+Inside of AstroPaper, you'll see the following folders and files:
 
 ```bash
-npm install   # 의존성 설치
-npm start     # 개발 서버 (http://localhost:3000)
+/
+├── public/
+│   ├── pagefind/          # auto-generated on build
+│   ├── favicon.svg
+│   └── default-og.jpg
+├── src/
+│   ├── assets/
+│   │   ├── icons/
+│   │   └── images/
+│   ├── components/
+│   ├── content/
+│   │   ├── pages/
+│   │   │   └── about.md
+│   │   └── posts/
+│   │       └── some-blog-posts.md
+│   ├── i18n/
+│   ├── layouts/
+│   ├── pages/
+│   ├── scripts/
+│   ├── styles/
+│   ├── types/
+│   ├── utils/
+│   ├── config.ts
+│   └── content.config.ts
+├── astro-paper.config.ts  # user-defined configurations
+└── astro.config.ts
 ```
 
-## 빌드 및 확인
+All blog posts are stored in the `src/content/posts/` directory. You can organise posts into subdirectories — the subdirectory name becomes part of the post URL.
+
+## 📖 Documentation
+
+Documentation can be read in two formats\_ _markdown_ & _blog post_.
+
+- Configuration - [markdown](src/content/posts/how-to-configure-astropaper-theme.md) | [blog post](https://astro-paper.pages.dev/posts/how-to-configure-astropaper-theme/)
+- Add Posts - [markdown](src/content/posts/adding-new-post.md) | [blog post](https://astro-paper.pages.dev/posts/adding-new-posts-in-astropaper-theme/)
+- Customize Color Schemes - [markdown](src/content/posts/customizing-astropaper-theme-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/)
+- Predefined Color Schemes - [markdown](src/content/posts/predefined-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/predefined-color-schemes/)
+
+## 💻 Tech Stack
+
+**Main Framework** - [Astro](https://astro.build/)  
+**Type Checking** - [TypeScript](https://www.typescriptlang.org/)  
+**Styling** - [TailwindCSS](https://tailwindcss.com/)  
+**UI/UX** - [Figma Design File](https://www.figma.com/community/file/1356898632249991861)  
+**Static Search** - [Pagefind](https://pagefind.app/)  
+**Icons** - [Tablers](https://tabler-icons.io/)  
+**Code Formatting** - [Prettier](https://prettier.io/)  
+**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)  
+**Linting** - [ESLint](https://eslint.org)  
+**Dynamic OG images** - [Satori](https://github.com/vercel/satori) + [Sharp](https://sharp.pixelplumbing.com/) + [Astro Fonts](https://docs.astro.build/en/guides/fonts/)
+
+## 👨🏻‍💻 Running Locally
+
+You can start using this project locally by running the following command in your desired directory:
 
 ```bash
-npm run build   # 프로덕션 빌드
-npm run serve   # 빌드 결과 로컬 확인
+# pnpm
+pnpm create astro@latest --template satnaing/astro-paper
+
+# npm
+npm create astro@latest -- --template satnaing/astro-paper
+
+# yarn
+yarn create astro --template satnaing/astro-paper
+
+# bun
+bun create astro@latest -- --template satnaing/astro-paper
 ```
 
-## 배포
+Then start the project by running the following commands:
 
-`main` 브랜치에 push하면 GitHub Actions가 자동으로 빌드·배포합니다.
+```bash
+# install dependencies if you haven't done so in the previous step.
+pnpm install
 
----
-
-## 블로그 사용법
-
-### 게시글 작성
-
-`blog/` 디렉토리에 Markdown 파일을 생성합니다.
-
-**파일명 규칙**: `YYYY-MM-DD-슬러그.md` (예: `2026-02-15-hello-world.md`)
-
-**Front matter 예시**:
-
-```yaml
----
-title: "게시글 제목"
-tags: [tag1, tag2]
-description: "게시글 요약 (SEO/OG 메타에 사용)"
-date: 2026-02-15
-slug: hello-world        # 선택. 생략 시 파일명에서 자동 생성
-draft: true              # 선택. 초안 (프로덕션 빌드에서 제외)
-unlisted: true           # 선택. 숨김 (목록 미노출, URL 직접 접근만 가능)
----
+# start running the project
+pnpm dev
 ```
 
-**본문 요약 구분선**: `<!-- truncate -->` 를 삽입하면 그 위의 내용이 목록 페이지의 요약으로 표시됩니다.
+## Google Site Verification (optional)
 
-> 자세한 front matter 옵션: [Docusaurus Blog - Header options](https://docusaurus.io/docs/blog#header-options)
+You can add your [Google Site Verification HTML tag](https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag) by setting `site.googleVerification` in `astro-paper.config.ts`:
 
-### 코드 블록
-
-````markdown
-```javascript title="example.js" showLineNumbers {1,4-6}
-// 줄 강조, 줄 번호, 타이틀을 지원합니다
+```ts file="astro-paper.config.ts"
+export default defineAstroPaperConfig({
+  site: {
+    // ...
+    googleVerification: "your-google-site-verification-value",
+  },
+  // ...
+});
 ```
-````
 
-> 자세한 코드 블록 기능: [Docusaurus Markdown - Code blocks](https://docusaurus.io/docs/markdown-features/code-blocks)
+> See [this discussion](https://github.com/satnaing/astro-paper/discussions/334#discussioncomment-10139247) for adding AstroPaper to the Google Search Console.
 
-### 초안 / 숨김
+## 🧞 Commands
 
-| 상태 | front matter      | 목록 노출 | URL 접근 | 검색/피드/사이트맵 |
-|------|-------------------|----------|---------|-------------------|
-| 발행 | (기본값)           | O        | O       | O                 |
-| 초안 | `draft: true`     | X        | X       | X                 |
-| 숨김 | `unlisted: true`  | X        | O       | X                 |
+All commands are run from the root of the project, from a terminal:
 
-> 자세한 설명: [Docusaurus Blog - Draft](https://docusaurus.io/docs/blog#draft), [Unlisted](https://docusaurus.io/docs/blog#unlisted)
+| Command          | Action                                                                                                                           |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm install`   | Installs dependencies                                                                                                            |
+| `pnpm dev`       | Starts local dev server at `localhost:4321`                                                                                      |
+| `pnpm build`     | Type-checks, builds the site, runs Pagefind indexing, and copies the index to `public/pagefind/`                                 |
+| `pnpm preview`   | Preview your build locally, before deploying                                                                                     |
+| `pnpm sync`      | Generates TypeScript types for all Astro modules. [Learn more](https://docs.astro.build/en/reference/cli-reference/#astro-sync). |
+| `pnpm astro ...` | Run CLI commands like `astro add`, `astro check`                                                                                 |
+
+## ✨ Feedback & Suggestions
+
+If you have any suggestions/feedback, you can contact me via [my email](mailto:satnaingdev+astropaper@gmail.com). Alternatively, feel free to open an issue if you find bugs or want to request new features.
+
+## 📜 License
+
+Licensed under the MIT License, Copyright © 2026
 
 ---
 
-## 운영 규칙
-
-### 1. 글 작성 → 발행 라이프사이클
-
-1. **초안 단계**: 글 작성 중에는 `draft: true`로 관리. 프로덕션 빌드에 포함되지 않음
-2. **검수/미리공유 단계** (선택): 외부에 링크로만 공유할 경우 `unlisted: true`로 전환
-3. **발행 단계**: `draft` / `unlisted` 제거 후 공개 발행
-4. **수정 단계**: 오탈자·내용 보강 시 URL(slug)을 유지하는 방향 우선
-
-### 2. URL(슬러그) 정책
-
-- 슬러그는 가능한 한 **고정** — 제목이 바뀌어도 URL은 유지
-- 슬러그를 변경했다면 **반드시 리다이렉트 규칙을 추가**하여 기존 링크가 깨지지 않게 유지
-
-### 3. 태그 운영 규칙
-
-- 글당 태그 **2~5개** 권장
-- 태그 네이밍 통일: **소문자, 하이픈** 구분 (예: `spring-batch`, `clean-code`)
-- 과도하게 세분화된 태그는 지양 — 탐색에 도움이 되는 수준으로 유지
-
-### 4. 메타데이터 / SEO
-
-- 발행 글은 `description`(요약) **필수**
-- 글 수정 시 URL은 그대로 유지
-- 초안/숨김 글은 검색 엔진에 노출되지 않음 (Docusaurus 기본 동작)
-
-### 5. 배포 전 체크리스트
-
-- [ ] `npm run build && npm run serve`로 프로덕션 빌드 확인
-- [ ] 내부/외부 링크 깨짐 여부 확인
-- [ ] 코드 블록 / 이미지 렌더링 확인
-- [ ] 슬러그 변경이 있었다면 리다이렉트 추가 확인
-
-### 6. 유지보수 루틴 (정기)
-
-- 태그 정리 (중복·오타 태그 병합)
-- 오래된 글 상단에 업데이트 안내 메모 (선택)
-- 검색 인덱스 / 사이트맵 / 피드 정상 생성 확인
+Made with 🤍 by [Sat Naing](https://satnaing.dev) 👨🏻‍💻 and [contributors](https://github.com/satnaing/astro-paper/graphs/contributors).

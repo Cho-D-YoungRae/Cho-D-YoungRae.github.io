@@ -3,9 +3,9 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://cho-d-youngrae.github.io",
-    title: "심플스택",
-    description: "Cho-D-YoungRae의 기술 블로그",
-    author: "Cho-D-YoungRae",
+    title: "조D영래 기술블로그",
+    description: "조D영래의 기술 블로그",
+    author: "조D영래",
     profile: "https://github.com/Cho-D-YoungRae",
     ogImage: "default-og.jpg",
     lang: "ko",
@@ -32,12 +32,12 @@ export default defineAstroPaperConfig({
     {
       name: "github",
       url: "https://github.com/Cho-D-YoungRae",
-      linkTitle: "Cho-D-YoungRae on GitHub",
+      linkTitle: "조D영래 GitHub",
     },
     {
       name: "mail",
       url: "mailto:yrc9229@gmail.com",
-      linkTitle: "Send an email to Cho-D-YoungRae",
+      linkTitle: "조D영래에게 이메일 보내기",
     },
   ],
   shareLinks: [

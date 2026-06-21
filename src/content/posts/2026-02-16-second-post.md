@@ -1,13 +1,11 @@
 ---
 title: "Docusaurus로 기술 블로그 만들기"
-tags: [docusaurus, tutorial]
+pubDatetime: 2026-02-16T09:00:00+09:00
 description: "Docusaurus를 사용하여 GitHub Pages에 기술 블로그를 구축하는 과정을 정리합니다."
-date: 2026-02-16
+tags: [docusaurus, tutorial]
 ---
 
 Docusaurus를 사용하여 기술 블로그를 구축하는 과정을 공유합니다.
-
-<!-- truncate -->
 
 ## Docusaurus 소개
 

@@ -1,0 +1,63 @@
+---
+// src/components/Giscus.astro
+// Giscus 댓글 위젯 — AstroPaper 다크모드 토글과 테마 동기화
+---
+
+<section id="giscus" class="mx-auto mt-12 w-full"></section>
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo="Cho-D-YoungRae/Cho-D-YoungRae.github.io"
+  data-repo-id="R_kgDORQFhsA"
+  data-category="Comments"
+  data-category-id="DIC_kwDORQFhsM4C_kZe"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="ko"
+  crossorigin="anonymous"
+  async
+  is:inline
+  data-astro-rerun
+></script>
+
+<script is:inline data-astro-rerun>
+  function getGiscusTheme() {
+    return document.documentElement.getAttribute("data-theme") === "dark"
+      ? "dark"
+      : "light";
+  }
+
+  function sendGiscusTheme(theme) {
+    const iframe = document.querySelector("iframe.giscus-frame");
+    if (!iframe) return;
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      "https://giscus.app"
+    );
+  }
+
+  // Giscus iframe이 로드된 뒤 초기 테마를 동기화
+  window.addEventListener("message", function onGiscusLoaded(event) {
+    if (event.origin !== "https://giscus.app") return;
+    if (event.data?.giscus?.discussion !== undefined || event.data?.giscus) {
+      sendGiscusTheme(getGiscusTheme());
+      window.removeEventListener("message", onGiscusLoaded);
+    }
+  });
+
+  // data-theme 속성 변경(다크모드 토글) 감지 → giscus 테마 업데이트
+  // data-astro-rerun으로 매 View Transitions 후 재실행되므로 중복 등록 방지
+  if (window.__giscusObserver) window.__giscusObserver.disconnect();
+  const observer = new MutationObserver(function () {
+    sendGiscusTheme(getGiscusTheme());
+  });
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  window.__giscusObserver = observer;
+</script>

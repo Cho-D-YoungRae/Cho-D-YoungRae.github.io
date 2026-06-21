@@ -11,17 +11,22 @@ import { unified } from "@astrojs/markdown-remark";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import rehypeCallouts from "rehype-callouts";
-import {
-  transformerNotationDiff,
-  transformerNotationHighlight,
-  transformerNotationWordHighlight,
-} from "@shikijs/transformers";
-import { transformerFileName } from "./src/utils/transformers/fileName";
+import expressiveCode from "astro-expressive-code";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import config from "./astro-paper.config";
 
 export default defineConfig({
   site: config.site.url,
   integrations: [
+    expressiveCode({
+      themes: ["min-light", "night-owl"],
+      plugins: [pluginLineNumbers()],
+      defaultProps: { showLineNumbers: false },
+      // AstroPaper v6는 data-theme="dark" / data-theme="light" 속성을 <html>에 설정함
+      // (src/scripts/theme.ts의 reflect() 함수 참고)
+      themeCssSelector: theme => `[data-theme="${theme.type}"]`,
+      styleOverrides: { borderRadius: "0.4rem" },
+    }),
     mdx(),
     sitemap({
       filter: page =>
@@ -43,17 +48,6 @@ export default defineConfig({
       ],
       rehypePlugins: [rehypeCallouts],
     }),
-    shikiConfig: {
-      themes: { light: "min-light", dark: "night-owl" },
-      defaultColor: false,
-      wrap: false,
-      transformers: [
-        transformerFileName({ style: "v2", hideDot: false }),
-        transformerNotationHighlight(),
-        transformerNotationWordHighlight(),
-        transformerNotationDiff({ matchAlgorithm: "v3" }),
-      ],
-    },
   },
   vite: {
     plugins: [tailwindcss()],

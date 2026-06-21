@@ -21,9 +21,10 @@
   crossorigin="anonymous"
   async
   is:inline
+  data-astro-rerun
 ></script>
 
-<script is:inline>
+<script is:inline data-astro-rerun>
   function getGiscusTheme() {
     return document.documentElement.getAttribute("data-theme") === "dark"
       ? "dark"
@@ -49,6 +50,8 @@
   });
 
   // data-theme 속성 변경(다크모드 토글) 감지 → giscus 테마 업데이트
+  // data-astro-rerun으로 매 View Transitions 후 재실행되므로 중복 등록 방지
+  if (window.__giscusObserver) window.__giscusObserver.disconnect();
   const observer = new MutationObserver(function () {
     sendGiscusTheme(getGiscusTheme());
   });
@@ -56,14 +59,5 @@
     attributes: true,
     attributeFilter: ["data-theme"],
   });
-
-  // View Transitions 후 재연결: observer는 html 요소를 계속 감시하므로 유지됨
-  // giscus 스크립트 자체는 SPA 전환 시 재실행이 필요
-  document.addEventListener("astro:after-swap", function () {
-    // giscus iframe이 새 페이지에서 리로드됐을 때 초기 테마를 다시 맞춤
-    const iframe = document.querySelector("iframe.giscus-frame");
-    if (iframe) {
-      sendGiscusTheme(getGiscusTheme());
-    }
-  });
+  window.__giscusObserver = observer;
 </script>

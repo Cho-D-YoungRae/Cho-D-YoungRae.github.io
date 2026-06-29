@@ -99,7 +99,7 @@ Spec-kit을 사용했을 때는 작업 결과가 실행되지 않거나 오류�
 
 루트 CLAUDE.md 에는 개발 환경이나 사용 가능한 도구들을 넣어주고 있다.
 
-```markdown
+```markdown title="CLAUDE.md"
 ## Development Environment
 
 ### Java
@@ -145,6 +145,11 @@ Codex
 - 클로드 코드 작업 후 코덱스로 리뷰하여 작업을 보완해주기도 하였으나
 - 오히려 코덱스 리뷰로 인해서 클로드 코드의 작업은 정상이었는데 혼란을 주기도 함
 - 그리고 너무 느려짐
+
+[codegraph](https://github.com/colbymchenry/codegraph)
+
+- 붙여서 써보고는 있다
+- 큰 차이는 잘 모르겠으나 떼면 역체감이 있으려나...
 
 [Pencil](https://www.pencil.dev/)
 

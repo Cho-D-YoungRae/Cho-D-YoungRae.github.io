@@ -1,0 +1,35 @@
+name: 버그
+description: 오류나 깨진 부분을 기록합니다
+title: "[버그] "
+labels: ["버그"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: 발생 위치
+      description: 페이지 URL 또는 실행한 명령
+      placeholder: https://cho-d-youngrae.github.io/posts/...
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 방법
+      description: 어떤 순서로 하면 문제가 나타나는지 적어주세요.
+      placeholder: |
+        1.
+        2.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대 동작
+      description: 원래 어떻게 되어야 하는지 적어주세요.
+
+  - type: input
+    id: environment
+    attributes:
+      label: 환경
+      description: 브라우저, 기기, OS
+      placeholder: Chrome 130 / macOS

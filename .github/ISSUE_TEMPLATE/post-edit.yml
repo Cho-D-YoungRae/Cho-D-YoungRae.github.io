@@ -1,0 +1,21 @@
+name: 글 수정
+description: 이미 발행한 글의 내용을 보완하거나 정정합니다
+title: "[글 수정] "
+labels: ["글 수정"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: 대상 글
+      description: 블로그 URL 또는 src/content/posts/ 아래 파일 경로
+      placeholder: src/content/posts/2026-06-28-claude-code.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: 고칠 내용
+      description: 무엇을 어떻게 바꿀지 적어주세요.
+    validations:
+      required: true

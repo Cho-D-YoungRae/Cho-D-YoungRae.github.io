@@ -1,4 +1,4 @@
-name: 버그
+name: 버그 기록
 description: 오류나 깨진 부분을 기록합니다
 title: "[버그] "
 labels: ["버그"]
@@ -30,6 +30,6 @@ body:
   - type: input
     id: environment
     attributes:
-      label: 환경
+      label: 사용 환경
       description: 브라우저, 기기, OS
       placeholder: Chrome 130 / macOS

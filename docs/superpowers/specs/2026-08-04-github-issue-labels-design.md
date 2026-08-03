@@ -80,6 +80,13 @@
 
 각 템플릿은 `name`, `description`, `title`(접두어), `labels`, `body`를 갖는다.
 
+**주의: `name`과 각 필드의 `label`은 최소 3자여야 한다.** GitHub이 한글도 문자
+단위로 세기 때문에 `글감`, `버그`, `환경` 같은 2자 값은
+`Name is too short (minimum is 3 characters)` 오류로 거부되고 해당 템플릿이
+목록에 뜨지 않는다. 이 때문에 템플릿 이름을 `글감 등록`, `버그 기록`으로,
+필드 이름을 `사용 환경`으로 두었다. `labels:`에 들어가는 라벨명은 이 제약과
+무관하므로 `글감` 그대로 쓴다.
+
 #### `post-idea.yml` — 글감 등록
 
 - `labels: [글감]`, `title: "[글감] "`

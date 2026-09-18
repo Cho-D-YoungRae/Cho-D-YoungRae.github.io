@@ -39,3 +39,4 @@ compose.override.yaml
 
 # subagent-driven-development 작업 스크래치
 .superpowers/
+.gstack/

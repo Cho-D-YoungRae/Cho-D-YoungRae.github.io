@@ -2,7 +2,7 @@
 title: "네트워크는 공짜가 아니다."
 pubDatetime: 2026-09-18T23:00:00+09:00
 description: "네트워크 대역폭도 확인하자."
-tags: [Network]=
+tags: [Network, Troubleshooting]
 ---
 
 보통 서버 스펙을 볼 때 CPU 코어 수, 메모리, 디스크는 많이 확인하는데 네트워크 대역폭은 신경쓰지 않는 경우가 많았다.

@@ -30,7 +30,7 @@ npm run preview # 빌드 결과 로컬 확인
 
 `src/content/posts/` 디렉토리에 Markdown(`.md`) 파일을 생성합니다.
 
-**파일명 규칙**: `YYYY-MM-DD-슬러그.md` (예: `2026-02-15-hello-world.md`) — 파일명이 곧 URL 슬러그가 됩니다.
+**파일명 규칙**: `YYYY-MM-DD-슬러그.md` (예: `2026-09-18-network-is-not-free.md`) — 파일명이 곧 URL 슬러그가 됩니다.
 
 **Front matter 예시**:
 
@@ -50,13 +50,30 @@ modDatetime: 2026-02-20T09:00:00+09:00   # 선택. 수정일
 
 ### 코드 블록
 
-[astro-expressive-code](https://expressive-code.com)로 타이틀·줄 강조·줄 번호를 지원합니다.
+[astro-expressive-code](https://expressive-code.com)로 파일명 타이틀·줄 강조·줄 번호를 지원합니다. 언어 뒤에 옵션을 공백으로 구분해 나열하며, 순서는 상관없습니다.
+
+| 옵션 | 예시 | 설명 |
+| --- | --- | --- |
+| 줄 번호 | `showLineNumbers` | 줄 번호를 표시합니다. 기본값은 숨김(`showLineNumbers: false`)이라 필요한 블록에만 붙입니다. |
+| 줄 강조 | `{1,4-6}` | 지정한 줄을 강조합니다. 쉼표로 여러 줄을, `-`로 범위를 지정합니다. |
+| 파일명 | `title="example.js"` | 코드 블록 상단에 파일명 탭을 표시합니다. |
 
 ````markdown
-```javascript title="example.js" showLineNumbers {1,4-6}
-// 줄 강조({1,4-6}), 줄 번호(showLineNumbers), 파일명 타이틀
+```javascript {1,4-6} showLineNumbers title="example.js"
+import React from 'react';
+
+function Greeting(props) {
+  if (props.name) {
+    return <h1>Hello, {props.name}!</h1>;
+  }
+  return <h1>Hello, World!</h1>;
+}
+
+export default Greeting;
 ```
 ````
+
+위 예시는 줄 번호와 파일명 탭을 표시하고, 1번 줄(`import`)과 4~6번 줄(`if` 블록)을 강조합니다. 옵션 없이 언어만 적으면(` ```python `) 일반 코드 블록으로 렌더링되고, 본문 중 인라인 코드는 `` `console.log("Hello")` ``처럼 백틱 하나로 감쌉니다.
 
 ### 댓글 · 검색
 

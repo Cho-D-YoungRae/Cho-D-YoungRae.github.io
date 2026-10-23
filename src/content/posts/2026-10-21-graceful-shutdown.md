@@ -1,8 +1,8 @@
 ---
 title: "비동기 작업 중 EntityManagerFactory가 닫혔다"
-pubDatetime: 2026-10-22T23:00:00+09:00
+pubDatetime: 2026-10-22T22:00:00+09:00
 description: "await-termination: true로 설정했는데도 종료 중에 @Async 작업이 EntityManagerFactory가 닫혀 실패한 원인을 Spring 종료 단계로 살펴본다"
-tags: [Spring, Multi-thread]
+tags: [Spring, Troubleshooting]
 ---
 
 `await-termination` 설정을 해두어서 문제가 없을 것이라고 생각했던 비동기 작업 중에 문제가 발생했다.

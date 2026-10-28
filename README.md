@@ -1,4 +1,4 @@
-# 조D영래 기술블로그
+# 조영래 기술블로그
 
 > 🔗 **블로그**: https://cho-d-youngrae.github.io
 
